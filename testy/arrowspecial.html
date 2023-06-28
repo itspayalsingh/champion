@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+
+.cursor1 {
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    border: 2px solid rgb(248, 255, 248);
+    border-radius: 50%;
+    transition: .3s;
+    backdrop-filter: blur(5px);
+}
+
+
+.cursor2 {
+    position: fixed;
+    height: 8px;
+    width: 8px;
+    border: 2px solid rgb(246, 246, 246);
+    border-radius: 50%;
+    transition: .1s
+}
+
+
+#test{
+    height: 900px;
+    background-color: black;
+}
+    </style>
+</head>
+<body>
+
+
+<div id="test"></div>
+
+    
+    <div class="cursor1"></div>
+    <div class="cursor2"></div>
+
+</body>
+</html>
+
+
+<script>
+        var cursor = document.querySelector(".cursor1")
+    var cursor1 = document.querySelector(".cursor2")
+
+    document.addEventListener("mousemove", function (e) {
+        cursor.style.cssText = cursor1.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
+    })
+
+
+</script>

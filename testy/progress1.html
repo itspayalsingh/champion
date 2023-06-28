@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champion</title>
+   
+</head>
+ 
+<style>
+    
+#slideshow {
+    height: 250px;
+    width: 250px;
+    overflow: hidden;
+    margin: auto;
+}
+
+#slideshow>a>img {
+    height: 250px;
+    width: 250px
+}
+
+#slideshow a {
+    position: relative;
+    display: inline-block;
+}
+ 
+#slideshow a:nth-of-type(2) {
+    animation-name: slider;
+    animation-delay: 4s;
+    animation-duration: 2s;
+}
+@keyframes slider {
+    from {
+        transform: translateY(-100%) rotate(30deg) ;
+        left: 250px;
+    }
+    to {
+        transform: translateY(-100%) ;
+        left: 0px;
+    }
+}
+
+
+
+/* Add this to your CSS */
+#progressBarContainer {
+  width: 250px;
+  height: 20px;
+  border: 1px solid black;
+}
+
+#progressBar {
+  height: 100%;
+  width: 0%;
+  background-color: green;
+}
+
+
+
+</style>
+ 
+
+
+<body>
+    <div id="slideshow">
+        <a href="">
+            <img src="https://cdn.shopify.com/s/files/1/0690/2566/1222/files/Hero_Mobile_earbuds.jpg" alt="">
+        </a>
+        <a href="">
+            <img src="https://cdn.shopify.com/s/files/1/0690/2566/1222/files/Headphones-test_2.jpg" alt="">
+        </a>
+        <a href="">
+            <img src="https://cdn.shopify.com/s/files/1/0690/2566/1222/files/Hero_speakers_V5.jpg" alt="">
+        </a>
+    </div>
+    <div id="progressBarContainer">
+        <div id="progressBar"></div>
+      </div>
+      
+</body>
+
+</html>
+<script>
+ 
+ // Add this to your JavaScript
+let currentSlide = 0;
+const totalSlides = document.querySelectorAll("#slideshow a").length;
+
+function updateProgressBar() {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  const progressBar = document.querySelector("#progressBar");
+  progressBar.style.width = `${(currentSlide / totalSlides) * 100}%`;
+}
+
+    
+    window.addEventListener("DOMContentLoaded", (e) => {
+            let slideshow = document.querySelector("#slideshow")
+            let arr = document.getElementsByTagName("a")
+            console.log(arr);
+            let slideComplete = (e) => {
+                slideshow.appendChild(arr[0]);
+                updateProgressBar();
+            }
+            for (let i = 0; i < arr.length; i++) {
+                arr[i].addEventListener("animationend", slideComplete)
+            }
+    })
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- #progressBarContainer {
+    border: 3px solid red;  
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #4b006e, #8c44ad);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+  
+  #progressBar {
+    width: 0%;
+    height: 100%;
+    background-color: white;
+  }
+  
+  @keyframes gradient {
+      0% {background-position: 0%}
+      50% {background-position: 100%}
+      100% {background-position: 0%}
+  }
+   -->
+  
+
+
+
+<!-- 
+let progressBar = document.querySelector("#progressBar");
+let slideIndex = 0;
+let slides = document.querySelectorAll("#slideshow>a>img");
+
+function updateProgressBar() {
+  slideIndex++;
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  }
+  let progress = (slideIndex / slides.length) * 100;
+  progressBar.style.width = progress + "%";
+} -->

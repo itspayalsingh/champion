@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #mainslide {
+            height: 680px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        #mainslide img {
+            height: 680px;
+            width: 100%;
+        }
+
+        #mainslide a {
+            position: relative;
+            display: inline-block;
+            height: 680px;
+            width: 100%;
+        }
+
+
+        #mainslide a:nth-of-type(2) {
+            animation-name: slider;
+            animation-delay: 4s;
+            animation-duration: 1s;
+            animation-timing-function: cubic-bezier(0, 1.5, 0.5, 1);
+        }
+
+        @keyframes slider {
+            from {
+                transform: translateY(-100%) rotate(30deg);
+                left: 100%;
+            }
+
+            to {
+                transform: translateY(-100%);
+                left: 0px;
+            }
+        }
+
+
+        .overlay {
+            display: grid;
+            place-items: center;
+            border: 5px solid yellow;
+            width: 600px;
+            height: 100px;
+            position: absolute;
+            color: white;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            /* display: none; */
+            opacity: 0;
+            transition: 2s;
+            /* transition: none; */
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div id="mainslide">
+        <a href="">
+            <div class="overlay">
+                <h1>Premium wireless &nbsp;
+                    earbuds
+                </h1>
+                <button>SHOP EARBUDS</button>
+            </div>
+            <img
+                src="https://cdn.shopify.com/s/files/1/0690/2566/1222/files/Hero_earbuds_V5.jpg?v=1675362760&width=1200">
+        </a>
+        <a href="">
+            <div class="overlay">
+                <h1>Best in class headphones
+                </h1>
+                <button>SHOP HEADPHONES</button>
+            </div>
+            <img
+                src="https://cdn.shopify.com/s/files/1/0690/2566/1222/files/Headphones-test_2.jpg?v=1672693018&width=1200">
+        </a>
+        <a href="">
+            <div class="overlay">
+                <h1>Wireless speakers</h1>
+                <button>SHOP SPEAKERS</button>
+            </div>
+            <img
+                src="https://cdn.shopify.com/s/files/1/0690/2566/1222/files/Hero_speakers_V5.jpg?v=1676321398&width=1200">
+        </a>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+<script>
+    window.addEventListener("DOMContentLoaded", (e) => {
+        let over = document.querySelectorAll(".overlay")
+        let stage = document.querySelector("#mainslide")
+        let arr = document.getElementsByTagName("a")
+        setTimeout(() => {
+            over[0].style.opacity = 1;
+            over[0].style.transition = "3s";
+        }, 100);
+        for (let i = 0; i < arr.length; i++) {
+            arr[i].addEventListener("animationend", () => {
+                stage.appendChild(arr[0])
+                over[i].style.opacity = 1
+                over[i].style.transition = "3s"
+            })
+            arr[i].addEventListener("animationstart", () => {
+                over[i].style.opacity = 0
+                over[i].style.transition = "none"
+            })
+
+        }
+    })
+
+</script>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow with Progress Bars</title>
+    <style>
+        #slideshow {
+            height: 250px;
+            width: 250px;
+            overflow: hidden;
+            margin: auto;
+        }
+
+        #slideshow>a>img {
+            height: 250px;
+            width: 250px;
+        }
+
+        #slideshow a {
+            position: relative;
+            display: inline-block;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 5px;
+            background-color: #ccc;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background-color: #4CAF50;
+            transition: width 2s;
+        }
+    </style>
+ 
+</head>
+
+<body>
+    <div id="slideshow">
+        <a href="#">
+            <img src="https://cdn.shopify.com/s/files/1/0690/2566/1222/files/Hero_Mobile_earbuds.jpg" alt="">
+        </a>
+        <a href="#">
+            <img src="https://cdn.shopify.com/s/files/1/0690/2566/1222/files/Headphones-test_2.jpg" alt="">
+        </a>
+        <a href="#">
+            <img src="https://cdn.shopify.com/s/files/1/0690/2566/1222/files/Hero_speakers_V5.jpg" alt="">
+        </a>
+    </div>
+</body>
+
+</html>
+<script>
+    window.addEventListener("DOMContentLoaded", (e) => {
+        let slideshow = document.querySelector("#slideshow");
+        let slides = slideshow.getElementsByTagName("a");
+        let progressBars = [];
+
+        for (let i = 0; i < slides.length; i++) {
+            let progressBarContainer = document.createElement("div");
+            progressBarContainer.classList.add("progress-bar-container");
+            let progressBar = document.createElement("div");
+            progressBar.classList.add("progress-bar");
+            progressBarContainer.appendChild(progressBar);
+            slides[i].appendChild(progressBarContainer);
+            progressBars.push(progressBar);
+        }
+
+        let currentIndex = 0;
+        let progress = 0;
+        let interval = setInterval(() => {
+            progress += 0.2;
+            if (progress >= 100) {
+                progress = 0;
+                currentIndex = (currentIndex + 1) % slides.length;
+            }
+            progressBars[currentIndex].style.width = progress + "%";
+        }, 100);
+
+        let slideComplete = (e) => {
+            slideshow.appendChild(slides[0]);
+            currentIndex = 0;
+            progress = 0;
+            clearInterval(interval);
+            interval = setInterval(() => {
+                progress += 0.2;
+                if (progress >= 100) {
+                    progress = 0;
+                    currentIndex = (currentIndex + 1) % slides.length;
+                }
+                progressBars[currentIndex].style.width = progress + "%";
+            }, 100);
+        };
+
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].addEventListener("animationend", slideComplete);
+        }
+    });
+</script>

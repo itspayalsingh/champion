@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #progress-bar {
+  width: 0%;
+  height: 20px;
+  background-color: #00bfff; /* Set your desired color */
+  transition: width 1s linear; /* Smooth transition over 1 second */
+}
+
+    </style>
+</head>
+<body>
+    <div class="progress-con">
+        <div id="progress-bar"></div>
+    </div>
+</body>
+</html>
+
+<script>
+ document.addEventListener("DOMContentLoaded", function() {
+    var progressBar = document.getElementById("progress-bar");
+    var maxWidth = 100;
+    var duration = 12; // seconds
+    var interval = duration * 1000 / maxWidth;
+    var width = 0;
+
+    function increaseWidth() {
+        if (width >= maxWidth) {
+            clearInterval(progressInterval);
+        } else {
+            width++;
+            progressBar.style.width = width + "%";
+        }
+    }
+
+    var progressInterval = setInterval(increaseWidth, interval);
+});
+</script>
