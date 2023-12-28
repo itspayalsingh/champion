@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<style>
+    * {
+        margin: 0;
+    }
+
+    .logo-slide img {
+        height: 200px;
+        width: 120px;
+        margin: 0 10px;
+    }
+
+    .logo-slide {
+        display: inline-block;
+ 
+        animation: 20s slide infinite linear;
+    }
+
+    .logos {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+        background: white;
+    }
+
+    .logos:before {
+        left: 0;
+        position: absolute;
+        width: 25%;
+        height: 100%;
+        z-index: 555;
+        background: linear-gradient(to right, #a6adb231, #A8AF3D);
+        content: "";
+    }
+
+    .logos:hover .logo-slide {
+        animation-play-state: paused;
+    }
+
+    @keyframes slide {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(-100%);
+        }
+    }
+</style>
+
+
+<body>
+
+
+    <div class="logos">
+        <div class="logo-slide">
+            <img src="https://cdn.shopify.com/s/files/1/0757/4968/7598/files/download-removebg-preview.png?v=1697446739" alt="">
+
+           <h3>Find us on instagram</h3>
+        </div>
+        <div class="logo-slide">
+            <img src="https://cdn.shopify.com/s/files/1/0757/4968/7598/files/download-removebg-preview.png?v=1697446739" alt="">
+
+           <h3>Find us on instagram</h3>
+        </div>
+ 
+
+    </div>
+
+
+
+
+</body>
+
+</html>

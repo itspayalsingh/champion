@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* CSS code for the menu bar */
+    *{
+        margin: 0;
+    }
+#menu-bar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: -300px; /* Initially hidden above the page */
+  width: 100%;
+  transition: top 0.8s; /* Smooth transition */
+}
+
+#menu-bar a {
+  /* float: left; */
+  display: block;
+  color: #f2f2f2;
+  /* text-align: center; */
+  padding: 14px 16px;
+  /* text-decoration: none; */
+}
+
+
+#forS{
+ 
+    height: 3800px;
+    width:99%;
+    background: linear-gradient(to bottom , rgb(164, 84, 84), rgb(145, 145, 64),rgb(300, 44, 44) , rgb(145, 239, 145),pink,rgb(236, 195, 236));
+}
+</style>
+<body>
+    <!-- HTML code for the menu bar -->
+<div id="menu-bar">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  
+<div id="forS">
+
+</div>
+</body>
+</html>
+
+<script>
+    // JavaScript code for the menu bar
+window.onscroll = function() { // When the user scrolls the page
+  var menuBar = document.getElementById("menu-bar"); // Get the menu bar element
+  if (window.scrollY > 300) { // If the user scrolled more than 300px
+    menuBar.style.top = "0"; // Show the menu bar at the top of the page
+  } else { // Otherwise
+    menuBar.style.top = "-300px"; // Hide the menu bar above the page
+  }
+};
+
+</script>

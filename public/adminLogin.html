@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form id="adminLogin">
+        <input type="text" placeholder="enter your username" id="username">
+        <input type="password" placeholder="enter your password" id="password">
+        <button>Submit</button>
+    </form>
+</body>
+
+</html>
+
+<script>
+
+
+
+    // document.querySelector("#adminLogin").addEventListener("submit", async (event) => {
+    //     event.preventDefault();
+    //     const userName = document.querySelector("#username").value;
+    //     const password = document.querySelector("#password").value;
+    //     const obj = {
+    //         userName,
+    //         password,
+    //     };
+    //     const adminUrl = "http://localhost:5050/admin/login";
+    //     try {
+    //         const response = await fetch(adminUrl, {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-type': 'application/json',
+    //             },
+    //             body: JSON.stringify(obj),
+    //         });
+    //         console.log(response);
+    //         if (response.ok) {
+    //             const data = await response.json(); // Parse the response body
+    //             console.log("data:", data);
+    //             const token = data.token; // Extract the token
+    //             console.log(token); // Log the token (you can store it or use it as needed)
+    //         } else {
+    //             console.error('Error:', response.status, response.statusText);
+    //         }
+    //     } catch (error) {
+    //         console.error('Fetch error:', error);
+    //     }
+    // });
+
+    document.querySelector("#adminLogin").addEventListener("submit", async () => {
+        localStorage.setItem("hey","payal")
+        event.preventDefault()
+        let userName = document.querySelector("#username").value;
+        let password = document.querySelector("#password").value;
+        let obj = {
+            userName, password
+        }
+        let adminUrl = "http://localhost:5050/admin/login"
+        try {
+            const res = await fetch(adminUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(obj)
+            })
+            if (res.ok) {
+                let data = await res.json()
+                // let adminObj={"id":data.id,"token":data.token}
+                // localStorage.setItem("Token",data.token)
+                // sessionStorage.setItem("hey","payal")
+                sessionStorage.setItem("Token",data.token)
+                // window.location.href='./adminInterface.html'
+                window.location.href=`http://localhost:5050/admin/${data.id}`
+
+            }else{
+                console.log("response is error");
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+</script>

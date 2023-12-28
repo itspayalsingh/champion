@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<style>
+    * {
+        margin: 0;
+    }
+
+
+
+
+
+
+
+
+
+    h3 {
+        text-align: center;
+    }
+
+
+
+    /* slideshow */
+    #slideshow {
+        position: relative;
+        margin-top: 50px;
+    }
+
+
+    #mainslide {
+        /* border: 4px solid red; */
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+
+    }
+
+    #mainslide img {
+        height: 100vh;
+        width: 100%;
+    }
+
+    #mainslide a {
+        position: relative;
+        display: inline-block;
+        height: 100vh;
+        width: 100%;
+    }
+
+    #mainslide a:nth-of-type(2) {
+        animation-name: slider;
+        animation-delay: 4s;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0, 1.5, 0.5, 1);
+    }
+
+    @keyframes slider {
+        from {
+            transform: translateY(-100%) rotate(30deg);
+            left: 100%;
+        }
+
+        to {
+            transform: translateY(-100%);
+            left: 0px;
+        }
+    }
+
+
+
+
+
+
+
+    .overlay {
+        display: grid;
+        place-items: center;
+        width: 600px;
+        height: 100px;
+        position: absolute;
+        color: rgb(10, 9, 9);
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        opacity: 0;
+        transition: 3s;
+    }
+
+    .overlay>h1 {
+        font-size: 50px;
+        font-weight: bolder;
+    }
+
+    .overlay>button {
+        background: none;
+        color: #504548;
+        border: 2px solid #2d2b2b;
+        border-radius: 1.5rem;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+
+    .pro img {
+        height: 70px;
+        margin-top: -20px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* the progrssbar */
+
+    #procon {
+        height: 80px;
+        width: 90%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 10px;
+        /* top: 10px; */
+        z-index: 4646;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+
+    .con {
+        background-color: rgba(77, 72, 72, 0.201);
+        backdrop-filter: blur(7px);
+        width: 32%;
+        height: 100%;
+        border-top: 0.1px solid rgb(12, 11, 11);
+        border-bottom: 0.1px solid rgb(12, 11, 11);
+    }
+
+    .pro {
+        width: auto;
+        margin-left: 5%;
+        margin-top: 5%;
+        /* border: 3px solid green; */
+        color: black;
+        display: flex;
+        /* justify-content: space-evenly; */
+        font-size: 40px;
+    }
+
+    #proimg img {
+        height: 70px;
+        width: 35px;
+    }
+
+    .pro h4 {
+
+        margin-left: 5%;
+        font-size: 30px;
+        font-weight: bolder
+    }
+
+    .bar {
+        width: 0%;
+        background-color: rgb(10, 9, 9);
+        height: 5px;
+    }
+
+    @keyframes progress {
+        from {
+            width: 0%;
+        }
+
+        to {
+            width: 100%;
+        }
+    }
+
+    .jagah {
+        height: 20px;
+    }
+
+
+
+
+    #kk {
+        height: 900px;
+    }
+
+
+
+
+
+    /* simmple paragraph */
+
+
+    #green {
+        box-sizing: border-box;
+        padding: 20px;
+        color: white;
+        display: flex;
+        margin-top: 50px;
+        height: 350px;
+        width: 100%;
+        background-color: #c193ad;
+        justify-content: space-between;
+    }
+
+    #green>div {
+        margin-top: 30px;
+        width: 30%;
+    }
+
+    #green h3,
+    #green p {
+        margin-top: 30px;
+    }
+
+    #green>div>div {
+        font-size: 35px;
+    }
+
+
+    /* position fixed menu  */
+    #fixedMenu {
+        text-align: center;
+        display: flex;
+        width: 80%;
+        background-color: white;
+        justify-content: space-around;
+        height: 50px;
+        font-size: 25px;
+        border: 2px solid red;
+
+    }
+
+    #mainFix {
+        width: 100%;
+        position: fixed;
+        background-color: black;
+        display: grid;
+        place-items: center;
+    }
+
+    #fixedMenu div {
+        margin-top: 10px;
+    }
+
+
+
+
+
+    /* the catagories part */
+
+    #catH3 {
+        text-align: center;
+    }
+
+    #category {
+        /* position: relative; */
+        display: flex;
+        overflow-x: hidden;
+        white-space: nowrap;
+        height: 180px;
+        z-index: 578;
+        width: 99%;
+        box-sizing: border-box;
+        /* border: 2px solid green; */
+
+    }
+
+    #category .col {
+        border-radius: 50%;
+        min-width: 120px;
+        height: 60%;
+        margin-right: 30px;
+        transition: all 1s;
+    }
+
+    #category img {
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+    }
+
+    #category .col:hover {
+        height: 65%;
+        min-width: 130px;
+        margin-right: 20px;
+
+    }
+
+
+    #btArrow {
+        position: absolute;
+        top: 5%;
+        height: 50px;
+        display: flex;
+        width: 98%;
+        margin-left: 10px;
+        justify-content: space-between;
+        z-index: 578;
+    }
+
+    #btArrow button {
+        font-size: 1.5vw;
+        font-weight: bolder;
+        background-color: #00000036;
+        backdrop-filter: blur(2px);
+        border: 2px solid black;
+        cursor: pointer;
+        border-radius: 50%;
+        height: 90%;
+        width: 5%;
+    }
+</style>
+
+
+<body>
+
+
+    <!-- position fixed menu -->
+    <div id="mainFix">
+        <div id="fixedMenu">
+            <div id="f1">
+                Western Wear
+            </div>
+            <div id="f2">
+                Ethinic Wear
+            </div>
+            <div id="f3">
+                Track Order
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <h3 id="catH3">Categories to Love</h3>
+    <div id="category">
+        <div class="col">
+            <img src="https://images.pexels.com/photos/18376686/pexels-photo-18376686/free-photo-of-german-kabirski-jewelry.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+        <div class="col">
+            <img src="https://images.pexels.com/photos/18651005/pexels-photo-18651005/free-photo-of-light-city-road-sunset.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+        <div class="col">
+            <img src="https://images.pexels.com/photos/17961179/pexels-photo-17961179/free-photo-of-nature-layers.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+        <div class="col">
+            <img src="https://images.pexels.com/photos/17993732/pexels-photo-17993732/free-photo-of-girl.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+        <div class="col">
+            <img src="https://images.pexels.com/photos/18376686/pexels-photo-18376686/free-photo-of-german-kabirski-jewelry.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+        <div class="col">
+            <img src="https://images.pexels.com/photos/18128704/pexels-photo-18128704/free-photo-of-little-boy-with-shine-eyes-between-tree-leaves-portrait.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+        <div class="col">
+            <img src="https://images.pexels.com/photos/18569699/pexels-photo-18569699/free-photo-of-ihc-delhi.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+        <div class="col">
+            <img src="https://images.pexels.com/photos/18376659/pexels-photo-18376659/free-photo-of-german-kabirski-jewelry.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+        <div class="col">
+            <img src="https://images.pexels.com/photos/18376675/pexels-photo-18376675/free-photo-of-german-kabirski-jewelry.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+        <div class="col">
+            <img src="https://images.pexels.com/photos/18376686/pexels-photo-18376686/free-photo-of-german-kabirski-jewelry.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+
+        <div id="btArrow">
+            <button id="left"><i class="fa-solid fa-chevron-left"></i></button>
+            <button id="right"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+
+
+    </div>
+
+
+
+    <div id="slideshow">
+        <div id="mainslide">
+            <a href="">
+                <div class="overlay">
+                    <h1>Best in class headphones
+                    </h1>
+                    <span class="jagah"></span>
+                    <button>SHOP HEADPHONES</button>
+                </div>
+                <img
+                    src="https://cdn.shopify.com/s/files/1/0757/4968/7598/files/Simple_Luxury_Fashion_Design_Presentation.png?v=1697399590">
+            </a>
+            <a href="">
+                <div class="overlay">
+                    <h1>Premium wireless
+                        earbuds
+                    </h1>
+                    <span class="jagah"></span>
+                    <button>SHOP EARBUDS</button>
+                </div>
+                <img
+                    src="https://cdn.shopify.com/s/files/1/0757/4968/7598/files/Fashion_Style_Presentation.png?v=1697399586">
+            </a>
+            <a href="">
+                <div class="overlay">
+                    <h1>Wireless speakers</h1>
+                    <span class="jagah"></span>
+                    <button>SHOP SPEAKERS</button>
+                </div>
+                <img
+                    src="https://cdn.shopify.com/s/files/1/0757/4968/7598/files/Fashion_Style_Presentation_1.png?v=1697399576">
+            </a>
+        </div>
+
+        <!-- progressbar -->
+
+        <div id="procon">
+            <div class="con">
+                <div class="bar"></div>
+                <div class="pro">
+                    <img src="https://cdn.shopify.com/s/files/1/0757/4968/7598/files/download-removebg-preview.png?v=1697446739"
+                        alt="">
+                    <h4>Gown</h4>
+                </div>
+            </div>
+            <div class="con">
+                <div class="bar"></div>
+                <div class="pro" id="proimg">
+                    <img src="https://cdn.shopify.com/s/files/1/0757/4968/7598/files/download__1_-removebg-preview.png?v=1697448027"
+                        alt="">
+                    <h4>Frocks</h4>
+                </div>
+            </div>
+            <div class="con">
+                <div class="bar"></div>
+                <div class="pro">
+                    <img src="https://cdn.shopify.com/s/files/1/0757/4968/7598/files/Instagram__asayris_art_shared_by_Andrea______-removebg-preview.png?v=1697448429"
+                        alt="">
+                    <h4>One Piece</h4>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <!-- simple paragraph -->
+
+    <div id="green">
+        <div>
+            <i class="fa-solid fa-hands-holding-child"></i>
+            <h3>Best quality
+            </h3>
+            <p>Equipped with state-of-the-art noise-cancelling technology, ensuring you a distraction-free listening
+                experience. Whether you're in a noisy office or on a busy street, these headphones will
+                effectively block out background noise and immerse you in your music like never before.</p>
+        </div>
+        <div>
+            <div> <i class="fa-solid fa-shield-heart"></i></div>
+            <h3>Comfortable
+            </h3>
+            <p>Designed with comfort in mind, the wireless headphones feature soft ear cushions and an ergonomic design.
+                These headphones are perfect for extended
+                listening sessions and will not cause any discomfort or fatigue even after hours of use.</p>
+        </div>
+        <div>
+            <div><i class="fa-solid fa-mobile"></i></div>
+            <h3>Apple & Android compatible
+            </h3>
+            <p>Compatible with both Android and Apple devices. Whether you have an iPhone or a Samsung Galaxy, you can
+                easily connect your phone or tablet to these headphones and enjoy your music on-the-go. With
+                Bluetooth 5.0 technology, you can expect a fast and stable connection every time.</p>
+        </div>
+    </div>
+
+
+
+
+    <div id="kk"></div>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+<script>
+
+    let parent = document.getElementById("category");
+    let left = document.getElementById("left");
+    let right = document.getElementById("right");
+
+
+    document.querySelector("#btArrow>#left").style.visibility = 'hidden'
+
+
+    left.addEventListener("click", function () {
+
+        let childWidth = parent.children[0].offsetWidth; // get the width of the first child
+        let scrollAmount = parent.scrollLeft - childWidth; // calculate how much to scroll
+        if (scrollAmount < 0) { // prevent scrolling beyond the left boundary
+            scrollAmount = 0;
+            document.querySelector("#btArrow>#left").style.visibility = 'hidden'
+
+        }
+        parent.scrollLeft = scrollAmount; // set the scroll position
+        document.querySelector("#btArrow>#right").style.visibility = 'visible'
+    });
+
+    right.addEventListener("click", function () {
+        // scroll right by one child width
+        let childWidth = parent.children[0].offsetWidth; // get the width of the first child
+        let parentWidth = parent.offsetWidth; // get the width of the parent
+        let scrollAmount = parent.scrollLeft + childWidth; // calculate how much to scroll
+        if (scrollAmount > parent.scrollWidth - parentWidth) { // prevent scrolling beyond the right boundary
+            scrollAmount = parent.scrollWidth - parentWidth;
+            document.querySelector("#btArrow>#right").style.visibility = 'hidden'
+        }
+        parent.scrollLeft = scrollAmount; // set the scroll position
+        document.querySelector("#btArrow>#left").style.visibility = 'visible'
+    });
+
+    window.addEventListener("DOMContentLoaded", (e) => {
+        let stage = document.querySelector("#mainslide")
+        let arr = document.getElementsByTagName("a")
+        let over = document.querySelectorAll(".overlay")
+        setTimeout(() => {
+            over[0].style.opacity = 1;
+            over[0].style.transition = "3s";
+        }, 100);
+        let progressBars = document.querySelectorAll(".bar")
+        progressBars[0].style.animation = "progress 4s linear"
+        for (let i = 0; i < arr.length; i++) {
+            arr[i].addEventListener("animationend", () => {
+                // stage.innerHTML+=`${arr[0]}`
+                stage.appendChild(arr[0])
+                over[i].style.opacity = 1
+                over[i].style.transition = "3s"
+                progressBars[i].style.animation = "none"
+                setTimeout(() => {
+                    progressBars[i].style.animation = "progress 4s linear"
+                }, 0)
+            })
+
+
+            arr[i].addEventListener("animationstart", () => {
+                over[i].style.opacity = 0
+                over[i].style.transition = "none"
+            })
+
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+</script>

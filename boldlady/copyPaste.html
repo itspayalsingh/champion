@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    >
+  </head>
+  <style>
+    /* for making space */
+        #space{
+          height:600px;
+          border:1px solid red;
+        }
+
+
+
+        /* adding code for category section */
+
+     #catH3 {
+            text-align: center;
+        }
+
+        #category {
+            /* position: relative; */
+            display: flex;
+            overflow-x: hidden;
+            white-space: nowrap;
+            height: 180px;
+            z-index: 578;
+            width: 99%;
+            box-sizing: border-box;
+            /* border: 2px solid green; */
+
+        }
+
+        #category .col {
+            border-radius: 50%;
+            min-width: 120px;
+            height: 60%;
+            margin-right: 30px;
+            transition: all 1s;
+          cursor:pointer;
+        }
+
+        #category img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        #category .col:hover {
+            height: 65%;
+            min-width: 130px;
+            margin-right: 20px;
+
+        }
+
+
+        #btArrow {
+            position: absolute;
+            /* top: 5%; */
+            height: 50px;
+            display: flex;
+            width: 98%;
+            margin-left: 10px;
+            justify-content: space-between;
+            z-index: 578;
+        }
+
+        #btArrow button {
+            font-size: 1.5vw;
+            font-weight: bolder;
+            background-color: #00000036;
+            backdrop-filter: blur(2px);
+            border: 2px solid black;
+            cursor: pointer;
+            border-radius: 50%;
+            height: 90%;
+            width: 5%;
+        }
+
+
+
+
+
+
+
+
+          /* #veImage{
+            width:100%;
+            height:90vh;
+
+          }
+            /* #ve { */
+            /*    height: 90vh; */
+              /* width:100%; */
+              /* display:none; */
+                /* width: 100%; */
+                /* opacity: 0.5 */
+            /* }
+
+            #vimeo-player {
+                background-color: black;
+                height: 90vh;
+                display: grid;
+                place-items: center;
+
+            } */
+
+
+            /* .pbutton-container {
+                position: absolute;
+                margin: auto; */
+                /* border: 4px solid yellow; */
+                /* margin-left: 100px; */
+                /* display: grid;
+                width: 250px;
+                height: 300px;
+            } */
+
+            /* .pbutton {
+
+                font-size: 25px;
+                font-weight: bolder;
+                color:white;
+                backdrop-filter: blur(8px);
+                background-color: rgba(33, 26, 19, 0.564);
+                text-decoration: none; */
+                /* border: 2px solid rgb(67, 65, 65); */
+                /* border: 2px solid black;
+                height: 40px; */
+                /* display: grid; */
+                /* z-index: 10000;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                border-radius: 1.2rem; */
+                /* padding: 10px;    */
+            /* } */
+  </style>
+
+  <body>
+    <!-- adding code for category section -->
+    <h3 id="catH3">Categories to Love</h3>
+    <div id="category">
+      {%- for sal in collections -%}
+        <div class="col" onclick>
+          <img
+            src="{{ sal.image | image_url: width: 100, format: 'jpg' }}"
+            alt=""
+          >
+          <h3>{{ sal.title }}</h3>
+        </div>
+      {%- endfor -%}
+
+      <div id="btArrow">
+        <button id="left"><i class="fa-solid fa-chevron-left"></i></button>
+        <button id="right"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+
+    <!-- <div id="vimeo-player"> -->
+    <!-- only button container -->
+    <!--
+      <div class="pbutton-container">
+        <a href="https://boldlady.in/collections/all" class="pbutton">Western wear</a>
+        <a href="https://myshopprime.com/BOLDLADY.FASHIONS/jadrwvj" class="pbutton">Ethinic wear</a>
+        <a href="https://zevox-5060-2.myshopify.com/pages/reviews" class="pbutton">Reviews</a>
+      </div>
+    -->
+    <!-- just checking for the video -->
+    <!--
+      <video  loading="lazy" id="ve" autoplay loop muted>
+        <source   src="https://cdn.shopify.com/videos/c/o/v/7a8cff2299fd4dcdbc512961955804d4.mp4" type="video/mp4">
+      </video>
+    -->
+
+    <!-- at 7/10/2023 -->
+    <!--
+      <iframe
+       loading="eager"
+      title="vimeo-player"
+      src="https://player.vimeo.com/video/872148263?h=802c172b32&autoplay=1&loop=0&title=0&byline=0&controls=0&muted=1"
+            width="640" id="ve" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen></iframe>
+    -->
+
+    <!--
+      <iframe title="vimeo-player"
+      loading="lazy"
+       src="https://player.vimeo.com/video/855836858?h=048a204153&autoplay=1&loop=0&title=0&byline=0&controls=0&muted=1"
+       width="640" id="ve" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+       allowfullscreen></iframe>
+    -->
+
+    <!--
+      <img
+          id="veImage"
+          loading="eager"
+          src="https://cdn.shopify.com/s/files/1/0757/4968/7598/files/1_2.png?v=1696741864"
+          alt=""
+        >
+      </div>
+    -->
+
+    <div id="space"></div>
+  </body>
+</html>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+  var player = new Vimeo.Player('vimeo-player', {
+      id: 821962936,
+      autoplay: true,
+      muted: true,
+      loop: false,
+      title: false,
+      byline: false,
+      controls: false
+  });
+
+  player.on('ended', function () {
+      player.setCurrentTime(0).then(function () {
+          player.play();
+      });
+  });
+
+
+
+
+  // left and right button for category
+   let parent = document.getElementById("category");
+    let left = document.getElementById("left");
+    let right = document.getElementById("right");
+
+
+    document.querySelector("#btArrow>#left").style.visibility = 'hidden'
+
+
+    left.addEventListener("click", function () {
+
+        let childWidth = parent.children[0].offsetWidth; // get the width of the first child
+        let scrollAmount = parent.scrollLeft - childWidth; // calculate how much to scroll
+        if (scrollAmount < 0) { // prevent scrolling beyond the left boundary
+            scrollAmount = 0;
+            document.querySelector("#btArrow>#left").style.visibility = 'hidden'
+
+        }
+        parent.scrollLeft = scrollAmount; // set the scroll position
+        document.querySelector("#btArrow>#right").style.visibility = 'visible'
+    });
+
+    right.addEventListener("click", function () {
+        // scroll right by one child width
+        let childWidth = parent.children[0].offsetWidth; // get the width of the first child
+        let parentWidth = parent.offsetWidth; // get the width of the parent
+        let scrollAmount = parent.scrollLeft + childWidth; // calculate how much to scroll
+        if (scrollAmount > parent.scrollWidth - parentWidth) { // prevent scrolling beyond the right boundary
+            scrollAmount = parent.scrollWidth - parentWidth;
+            document.querySelector("#btArrow>#right").style.visibility = 'hidden'
+        }
+        parent.scrollLeft = scrollAmount; // set the scroll position
+        document.querySelector("#btArrow>#left").style.visibility = 'visible'
+    });
+</script>

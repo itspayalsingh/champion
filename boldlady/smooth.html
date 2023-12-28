@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+   <style>
+        #category {
+        /* position: relative; */
+        display: flex;
+        overflow-x: hidden;
+        white-space: nowrap;
+        height: 180px;
+        z-index: 578;
+        width: 99%;
+        box-sizing: border-box;
+        /* border: 2px solid green; */
+
+    }
+
+    #category .col {
+        border-radius: 50%;
+        min-width: 120px;
+        height: 60%;
+        margin-right: 30px;
+        transition: all 1s;
+    }
+
+    #category img {
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+    }
+
+    #category .col:hover {
+        height: 65%;
+        min-width: 130px;
+        margin-right: 20px;
+
+    }
+
+
+    #btArrow {
+        position: absolute;
+        top: 5%;
+        height: 50px;
+        display: flex;
+        width: 98%;
+        margin-left: 10px;
+        justify-content: space-between;
+        z-index: 578;
+    }
+
+    #btArrow button {
+        font-size: 1.5vw;
+        font-weight: bolder;
+        background-color: #00000036;
+        backdrop-filter: blur(2px);
+        border: 2px solid black;
+        cursor: pointer;
+        border-radius: 50%;
+        height: 90%;
+        width: 5%;
+    }
+   </style>
+ 
+<body>
+  <div id="category">
+    <div class="col">
+        <img src="https://images.pexels.com/photos/18376686/pexels-photo-18376686/free-photo-of-german-kabirski-jewelry.jpeg?auto=compress&cs=tinysrgb&w=400"
+            alt="">
+        <h3>tile dance</h3>
+    </div>
+    <div class="col">
+        <img src="https://images.pexels.com/photos/18651005/pexels-photo-18651005/free-photo-of-light-city-road-sunset.jpeg?auto=compress&cs=tinysrgb&w=400"
+            alt="">
+        <h3>tile dance</h3>
+    </div>
+    <div class="col">
+        <img src="https://images.pexels.com/photos/17961179/pexels-photo-17961179/free-photo-of-nature-layers.jpeg?auto=compress&cs=tinysrgb&w=400"
+            alt="">
+        <h3>tile dance</h3>
+    </div>
+    <div class="col">
+        <img src="https://images.pexels.com/photos/17993732/pexels-photo-17993732/free-photo-of-girl.jpeg?auto=compress&cs=tinysrgb&w=400"
+            alt="">
+        <h3>tile dance</h3>
+    </div>
+    <div class="col">
+        <img src="https://images.pexels.com/photos/18376686/pexels-photo-18376686/free-photo-of-german-kabirski-jewelry.jpeg?auto=compress&cs=tinysrgb&w=400"
+            alt="">
+        <h3>tile dance</h3>
+    </div>
+    <div class="col">
+        <img src="https://images.pexels.com/photos/18128704/pexels-photo-18128704/free-photo-of-little-boy-with-shine-eyes-between-tree-leaves-portrait.jpeg?auto=compress&cs=tinysrgb&w=400"
+            alt="">
+        <h3>tile dance</h3>
+    </div>
+    <div class="col">
+        <img src="https://images.pexels.com/photos/18569699/pexels-photo-18569699/free-photo-of-ihc-delhi.jpeg?auto=compress&cs=tinysrgb&w=400"
+            alt="">
+        <h3>tile dance</h3>
+    </div>
+    <div class="col">
+        <img src="https://images.pexels.com/photos/18376659/pexels-photo-18376659/free-photo-of-german-kabirski-jewelry.jpeg?auto=compress&cs=tinysrgb&w=400"
+            alt="">
+        <h3>tile dance</h3>
+    </div>
+    <div class="col">
+        <img src="https://images.pexels.com/photos/18376675/pexels-photo-18376675/free-photo-of-german-kabirski-jewelry.jpeg?auto=compress&cs=tinysrgb&w=400"
+            alt="">
+        <h3>tile dance</h3>
+    </div>
+    <div class="col">
+        <img src="https://images.pexels.com/photos/18376686/pexels-photo-18376686/free-photo-of-german-kabirski-jewelry.jpeg?auto=compress&cs=tinysrgb&w=400"
+            alt="">
+        <h3>tile dance</h3>
+    </div>
+
+    <div id="btArrow">
+        <button id="left"><i class="fa-solid fa-chevron-left"></i></button>
+        <button id="right"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+
+</div>
+
+</body>
+</html>
+
+
+<script>
+  
+  let parent = document.getElementById("category");
+    let left = document.getElementById("left");
+    let right = document.getElementById("right");
+
+
+    document.querySelector("#btArrow>#left").style.visibility = 'hidden'
+
+  parent.addEventListener("")
+
+
+    left.addEventListener("click", function () {
+
+        let childWidth = parent.children[0].offsetWidth; // get the width of the first child
+        let scrollAmount = parent.scrollLeft - childWidth; // calculate how much to scroll
+        if (scrollAmount < 0) { // prevent scrolling beyond the left boundary
+            scrollAmount = 0;
+            document.querySelector("#btArrow>#left").style.visibility = 'hidden'
+
+        }
+        parent.scrollLeft = scrollAmount; // set the scroll position
+        document.querySelector("#btArrow>#right").style.visibility = 'visible'
+    });
+
+    right.addEventListener("click", function () {
+        // scroll right by one child width
+        let childWidth = parent.children[0].offsetWidth; // get the width of the first child
+        let parentWidth = parent.offsetWidth; // get the width of the parent
+        let scrollAmount = parent.scrollLeft + childWidth; // calculate how much to scroll
+        if (scrollAmount > parent.scrollWidth - parentWidth) { // prevent scrolling beyond the right boundary
+            scrollAmount = parent.scrollWidth - parentWidth;
+            document.querySelector("#btArrow>#right").style.visibility = 'hidden'
+        }
+        parent.scrollLeft = scrollAmount; // set the scroll position
+        document.querySelector("#btArrow>#left").style.visibility = 'visible'
+    });
+
+</script>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <!-- <style>
+        #parent {
+            display: flex;
+            overflow-x: hidden;
+            white-space: nowrap;
+            height: 200px;
+            width: 100%;
+        }
+
+        #parent div{
+            border-radius: 50%;
+        }
+
+        #child1 {
+            min-width: 300px;
+            background-color: crimson;
+        }
+
+        #child2 {
+            min-width: 300px;
+            background-color: coral;
+        }
+
+        #child3 {
+            min-width: 300px;
+            background-color: gold;
+        }
+
+        #child4 {
+            min-width: 300px;
+            background-color: limegreen;
+        }
+
+        #child5 {
+            min-width: 300px;
+            background-color: turquoise;
+        }
+
+        #child6 {
+            min-width: 300px;
+            background-color: dodgerblue;
+        }
+
+        #child7 {
+            min-width: 300px;
+            background-color: indigo;
+        }
+
+        #child8 {
+            min-width: 300px;
+            background-color: violet;
+        }
+
+        #child9 {
+            min-width: 300px;
+            background-color: pink;
+        }
+
+        #child10 {
+            min-width: 300px;
+            background-color: lightgray;
+        }
+
+        button {
+            height: 50px;
+        }
+    </style>
+
+
+
+    <div id="parent">
+        <div id="child1">1</div>
+        <div id="child2">2</div>
+        <div id="child3">3</div>
+        <div id="child4">4</div>
+        <div id="child5">5</div>
+        <div id="child6">6</div>
+        <div id="child7">7</div>
+        <div id="child8">8</div>
+        <div id="child9">9</div>
+        <div id="child10">10</div>
+    </div>
+    <button id="left">Left</button>
+    <button id="right">Right</button> -->
+
+    <style>
+        *{margin: 0;}
+        #category {
+            /* position: relative; */
+            display: flex;
+            overflow-x: hidden;
+            white-space: nowrap;
+            height: 250px;
+            width: 100%;
+            border: 2px solid green;
+        }
+
+        #category .col {
+            border-radius: 50%;
+            min-width: 200px;
+            height: 80%;
+        }
+
+        img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        #btArrow {
+            position: absolute;
+            top: 40%;
+            height: 50px;
+            display: flex;
+            width: 100%;
+
+            box-sizing: border-box;
+            justify-content: space-between;
+            border: 2px solid red;
+        }
+
+        #btArrow button {
+            font-size: 30px;
+            padding: 5px;
+            background-color: #604f5436;
+            backdrop-filter: blur(7px);
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+
+
+
+
+    <div id="category">
+        <div class="col">
+            <img src="https://images.pexels.com/photos/18376686/pexels-photo-18376686/free-photo-of-german-kabirski-jewelry.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+        <div class="col">
+            <img src="https://images.pexels.com/photos/18651005/pexels-photo-18651005/free-photo-of-light-city-road-sunset.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+        <div class="col">
+            <img src="https://images.pexels.com/photos/17961179/pexels-photo-17961179/free-photo-of-nature-layers.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+        <div class="col">
+            <img src="https://images.pexels.com/photos/17993732/pexels-photo-17993732/free-photo-of-girl.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+        <div class="col">
+            <img src="https://images.pexels.com/photos/18376686/pexels-photo-18376686/free-photo-of-german-kabirski-jewelry.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+        <div class="col">
+            <img src="https://images.pexels.com/photos/18128704/pexels-photo-18128704/free-photo-of-little-boy-with-shine-eyes-between-tree-leaves-portrait.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+        <div class="col">
+            <img src="https://images.pexels.com/photos/18569699/pexels-photo-18569699/free-photo-of-ihc-delhi.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+        <div class="col">
+            <img src="https://images.pexels.com/photos/18376659/pexels-photo-18376659/free-photo-of-german-kabirski-jewelry.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+        <div class="col">
+            <img src="https://images.pexels.com/photos/18376675/pexels-photo-18376675/free-photo-of-german-kabirski-jewelry.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+        <div class="col">
+            <img src="https://images.pexels.com/photos/18376686/pexels-photo-18376686/free-photo-of-german-kabirski-jewelry.jpeg?auto=compress&cs=tinysrgb&w=400"
+                alt="">
+            <h3>tile dance</h3>
+        </div>
+
+        <div id="btArrow">
+            <button id="left"><i class="fa-solid fa-chevron-left"></i></button>
+            <button id="right"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+</body>
+
+</html>
+
+
+     
+<script>
+    let parent = document.getElementById("category");
+    let left = document.getElementById("left");
+    let right = document.getElementById("right");
+    
+    left.addEventListener("click", function() {
+        // scroll left by one child width
+        let childWidth = parent.children[0].offsetWidth; // get the width of the first child
+        let scrollAmount = parent.scrollLeft - childWidth; // calculate how much to scroll
+        if (scrollAmount < 0) { // prevent scrolling beyond the left boundary
+            scrollAmount = 0;
+        }
+        parent.scrollLeft = scrollAmount; // set the scroll position
+    });
+    
+    right.addEventListener("click", function() {
+        // scroll right by one child width
+        let childWidth = parent.children[0].offsetWidth; // get the width of the first child
+        let parentWidth = parent.offsetWidth; // get the width of the parent
+        let scrollAmount = parent.scrollLeft + childWidth; // calculate how much to scroll
+        if (scrollAmount > parent.scrollWidth - parentWidth) { // prevent scrolling beyond the right boundary
+            scrollAmount = parent.scrollWidth - parentWidth;
+        }
+        parent.scrollLeft = scrollAmount; // set the scroll position
+    });
+    </script>
+   
